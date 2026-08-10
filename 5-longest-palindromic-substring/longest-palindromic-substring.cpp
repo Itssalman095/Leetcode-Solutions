@@ -6,10 +6,8 @@ public:
         int start = 0, maxLen = 1;
 
         for (int i = 0; i < s.size(); i++) {
-            // Odd length palindromes (single center)
-            int len1 = expandFromCenter(s, i, i);
-            // Even length palindromes (two centers)
-            int len2 = expandFromCenter(s, i, i + 1);
+            int len1 = expandFromCenter(s, i, i);       // odd length
+            int len2 = expandFromCenter(s, i, i + 1);   // even length
 
             int len = max(len1, len2);
             if (len > maxLen) {
@@ -27,6 +25,6 @@ private:
             left--;
             right++;
         }
-        return right - left - 1; // length of palindrome
+        return right - left - 1;
     }
 };
